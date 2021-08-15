@@ -5,6 +5,8 @@ from bar import bar
 from ball import ball
 from pygame import mixer
 
+# this comment is to test github commit functionality
+
 pygame.init()
 
 win = pygame.display.set_mode((1000,500))
