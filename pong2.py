@@ -6,6 +6,7 @@ from ball import ball
 from pygame import mixer
 
 # this comment is to test github commit functionality
+# second comment 
 
 pygame.init()
 
