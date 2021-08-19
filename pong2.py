@@ -39,7 +39,9 @@ while run:
 			win.blit(menuBackgroundRed, (0,0))
 		else : win.blit(menuBackgroundWhite, (0,0))
 
-		for event in pygame.event.get():
+		event = pygame.event.get()
+
+		for event in event:
 			if event.type == pygame.QUIT:
 				menu = False
 				run = False
@@ -47,7 +49,7 @@ while run:
 				menu = False
 				gameRunning = True
 
-		pygame.display.update()
+		pygame.display.update()	
 
 	win.blit(background, (0,0))
 
@@ -71,8 +73,16 @@ while run:
 		if (ball.getCoord('x')>925) :
 			ball.changeDirection()
 
-		if (ball.getCoord('x')<65 and (ball.getCoord('y')>player.getCoord('y') and ball.getCoord('y')<player.getCoord('y')+100)) :
-			ball.changeDirection()
+		#if (ball.getCoord('x')<65 and (ball.getCoord('y')>player.getCoord('y') and ball.getCoord('y')<player.getCoord('y')+100)) :
+		if (ball.rectFrame.colliderect(player.rectFrame)):
+			#ball.changeDirection()
+			print('collided')
+			
+		if ball.getCoord('x')<35 :
+			ball.reset()
+			player.reset('p')
+			gameRunning = False
+			menu = True
 
 
 
@@ -82,7 +92,7 @@ while run:
 		win.blit(enemy.getImage(), (enemy.getCoord('x'),enemy.getCoord('y')))
 		win.blit(ball.getImage(), (ball.getCoord('x'),ball.getCoord('y')))
 		pygame.display.update()
-		pygame.time.delay(3)
+
 
 pygame.quit()
 quit()
