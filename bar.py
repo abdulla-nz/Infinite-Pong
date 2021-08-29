@@ -30,10 +30,10 @@ class bar:
 	def setCoord(self,type,val):
 		if type=="x" :
 			self.xcoord+=val
-			self.rectFrame.move(val,0)
+			self.rectFrame.move_ip(val,0)
 		elif type=="y" :
 			self.ycoord+=val
-			self.rectFrame.move(0,val)
+			self.rectFrame.move_ip(0,val)
 
 	# this method is redundant. I should just instantiate a new object.
 	def reset(self, type):
@@ -45,3 +45,5 @@ class bar:
 			self.xcoord = 950
 			self.ycoord = 200
 			self.rectFrame = pygame.Rect(950, 200, 15, 100)
+
+	

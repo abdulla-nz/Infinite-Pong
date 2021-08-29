@@ -75,8 +75,7 @@ while run:
 
 		#if (ball.getCoord('x')<65 and (ball.getCoord('y')>player.getCoord('y') and ball.getCoord('y')<player.getCoord('y')+100)) :
 		if (ball.rectFrame.colliderect(player.rectFrame)):
-			#ball.changeDirection()
-			print('collided')
+			ball.changeDirection()
 			
 		if ball.getCoord('x')<35 :
 			ball.reset()
@@ -84,9 +83,10 @@ while run:
 			gameRunning = False
 			menu = True
 
-
-
 		ball.setCoord('x',ball.getCoord('v'))
+		ball.setCoord('y',ball.getCoord('h'))
+		ball.changeHeight(ball.getCoord('y'))
+		print(ball.rectFrame.top)
 
 		win.blit(player.getImage(), (player.getCoord('x'),player.getCoord('y')))
 		win.blit(enemy.getImage(), (enemy.getCoord('x'),enemy.getCoord('y')))
